@@ -27,6 +27,7 @@ public class ReproductorActivity extends AppCompatActivity {
     private Button btnPlay, btnPause, btnMenu;
     private String nombre, genero;
     private int edad;
+    private boolean fotoTomada = false; // Variable para controlar si la foto ha sido tomada
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +50,14 @@ public class ReproductorActivity extends AppCompatActivity {
 
         configurarVideo(categoria);
 
-        btnPlay.setOnClickListener(v -> checkCameraPermissionAndTakePhoto());
+        btnPlay.setOnClickListener(v -> {
+            if (!fotoTomada) {
+                checkCameraPermissionAndTakePhoto();
+            } else {
+                videoView.start();
+            }
+        });
+
         btnPause.setOnClickListener(v -> videoView.pause());
         btnMenu.setOnClickListener(v -> finish());
     }
@@ -71,7 +79,9 @@ public class ReproductorActivity extends AppCompatActivity {
                         startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
                     }
                 })
-                .setNegativeButton("No", (dialog, which) -> dialog.dismiss())
+                .setNegativeButton("No", (dialog, which) -> {
+                    videoView.start(); // Comienza el video si se selecciona "No"
+                })
                 .create()
                 .show();
     }
@@ -83,10 +93,10 @@ public class ReproductorActivity extends AppCompatActivity {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             ivFotoPerfil.setImageBitmap(imageBitmap);
+            fotoTomada = true; // Actualiza el estado para indicar que la foto ha sido tomada
             videoView.start(); // Comienza el video después de tomar la foto
         } else {
-            // Manejo en caso de que la foto no sea tomada o el usuario cancele
-            videoView.start(); // Comienza el video de todas formas
+            videoView.start(); // Comienza el video si no se toma la foto
         }
     }
 
@@ -103,7 +113,6 @@ public class ReproductorActivity extends AppCompatActivity {
                 videoPath += R.raw.terror_video;
                 break;
             default:
-                // Manejo de caso por defecto si es necesario
                 break;
         }
         videoView.setVideoPath(videoPath);
@@ -116,7 +125,6 @@ public class ReproductorActivity extends AppCompatActivity {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 showTakePhotoDialog();
             } else {
-                // Manejar el caso donde el permiso es denegado
                 new AlertDialog.Builder(this)
                         .setMessage("Permiso de cámara denegado. No se puede tomar una foto.")
                         .setPositiveButton("OK", null)
