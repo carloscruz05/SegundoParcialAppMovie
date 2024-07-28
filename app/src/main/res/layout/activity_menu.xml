@@ -19,6 +19,7 @@
 
         <!-- Sección de Caricaturas -->
         <LinearLayout
+            android:id="@+id/sectionCaricatura"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -26,10 +27,12 @@
             android:layout_marginTop="8dp">
 
             <ImageView
+                android:id="@+id/imgCaricatura"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:src="@drawable/ic_caricatura"
-                android:contentDescription="Caricatura" />
+                android:contentDescription="Caricatura"
+                android:visibility="visible" />
 
             <Button
                 android:id="@+id/btnCaricatura"
@@ -41,6 +44,7 @@
 
         <!-- Sección de Acción -->
         <LinearLayout
+            android:id="@+id/sectionAccion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -48,10 +52,12 @@
             android:layout_marginTop="8dp">
 
             <ImageView
+                android:id="@+id/imgAccion"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:src="@drawable/ic_accion"
-                android:contentDescription="Acción" />
+                android:contentDescription="Acción"
+                android:visibility="visible" />
 
             <Button
                 android:id="@+id/btnAccion"
@@ -63,6 +69,7 @@
 
         <!-- Sección de Terror -->
         <LinearLayout
+            android:id="@+id/sectionTerror"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -70,10 +77,12 @@
             android:layout_marginTop="8dp">
 
             <ImageView
+                android:id="@+id/imgTerror"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:src="@drawable/ic_terror"
-                android:contentDescription="Terror" />
+                android:contentDescription="Terror"
+                android:visibility="visible" />
 
             <Button
                 android:id="@+id/btnTerror"

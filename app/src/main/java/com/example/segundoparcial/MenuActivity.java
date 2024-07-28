@@ -6,18 +6,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.widget.RadioGroup;
 import android.widget.RadioButton;
 
-import com.example.segundoparcial.R;
-
 public class MenuActivity extends AppCompatActivity {
 
     private TextView textViewWelcome;
     private Button btnCaricatura, btnAccion, btnTerror;
+    private ImageView imgCaricatura, imgAccion, imgTerror;
+    private LinearLayout sectionCaricatura, sectionAccion, sectionTerror;
     private String nombre;
     private int edad;
     private String genero;
@@ -31,13 +33,19 @@ public class MenuActivity extends AppCompatActivity {
         btnCaricatura = findViewById(R.id.btnCaricatura);
         btnAccion = findViewById(R.id.btnAccion);
         btnTerror = findViewById(R.id.btnTerror);
+        imgCaricatura = findViewById(R.id.imgCaricatura);
+        imgAccion = findViewById(R.id.imgAccion);
+        imgTerror = findViewById(R.id.imgTerror);
+        sectionCaricatura = findViewById(R.id.sectionCaricatura);
+        sectionAccion = findViewById(R.id.sectionAccion);
+        sectionTerror = findViewById(R.id.sectionTerror);
 
         // Mostrar diálogo para capturar datos
         mostrarDialogoCapturaDatos();
 
-        btnCaricatura.setOnClickListener(v -> abrirReproductor("Caricatura"));
-        btnAccion.setOnClickListener(v -> abrirReproductor("Acción"));
-        btnTerror.setOnClickListener(v -> abrirReproductor("Terror"));
+        btnCaricatura.setOnClickListener(v -> abrirReproductor("Caricatura", imgCaricatura.getId()));
+        btnAccion.setOnClickListener(v -> abrirReproductor("Acción", imgAccion.getId()));
+        btnTerror.setOnClickListener(v -> abrirReproductor("Terror", imgTerror.getId()));
     }
 
     private void mostrarDialogoCapturaDatos() {
@@ -77,25 +85,26 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     private void configurarCategorias() {
-        btnCaricatura.setVisibility(View.VISIBLE);
-        btnAccion.setVisibility(View.GONE);
-        btnTerror.setVisibility(View.GONE);
+        sectionCaricatura.setVisibility(View.VISIBLE);
+        sectionAccion.setVisibility(View.GONE);
+        sectionTerror.setVisibility(View.GONE);
 
         if (edad > 12) {
-            btnAccion.setVisibility(View.VISIBLE);
+            sectionAccion.setVisibility(View.VISIBLE);
         }
 
         if (edad >= 18) {
-            btnTerror.setVisibility(View.VISIBLE);
+            sectionTerror.setVisibility(View.VISIBLE);
         }
     }
 
-    private void abrirReproductor(String categoria) {
+    private void abrirReproductor(String categoria, int imageId) {
         Intent intent = new Intent(MenuActivity.this, com.example.segundoparcial.ReproductorActivity.class);
         intent.putExtra("categoria", categoria);
         intent.putExtra("nombre", nombre);
         intent.putExtra("edad", edad);
         intent.putExtra("genero", genero);
+        intent.putExtra("imageId", imageId);
         startActivity(intent);
     }
 }
