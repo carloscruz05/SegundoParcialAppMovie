@@ -19,9 +19,7 @@
         <activity
             android:name=".ReproductorActivity"
             android:exported="false" />
-        <activity
-            android:name=".PlayerActivity"
-            android:exported="false" />
+
         <activity
             android:name=".MenuActivity"
             android:exported="false" />
