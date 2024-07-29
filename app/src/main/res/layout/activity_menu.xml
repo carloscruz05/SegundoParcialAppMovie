@@ -25,24 +25,28 @@
             android:id="@+id/sectionCaricatura"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
             android:layout_marginTop="8dp">
 
             <ImageView
                 android:id="@+id/imgCaricatura"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:src="@drawable/ic_caricatura"
                 android:contentDescription="Caricatura"
-                android:visibility="visible" />
+                android:visibility="visible"
+                android:scaleType="centerCrop"
+                android:clickable="true"
+                android:focusable="true" />
 
-            <Button
-                android:id="@+id/btnCaricatura"
-                android:layout_width="0dp"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Caricatura" />
+                android:text="Caricatura"
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="8dp"/>
         </LinearLayout>
 
         <!-- Sección de Acción -->
@@ -50,24 +54,28 @@
             android:id="@+id/sectionAccion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
             android:layout_marginTop="8dp">
 
             <ImageView
                 android:id="@+id/imgAccion"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:src="@drawable/ic_accion"
                 android:contentDescription="Acción"
-                android:visibility="visible" />
+                android:visibility="visible"
+                android:scaleType="centerCrop"
+                android:clickable="true"
+                android:focusable="true" />
 
-            <Button
-                android:id="@+id/btnAccion"
-                android:layout_width="0dp"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Acción" />
+                android:text="Acción"
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="8dp"/>
         </LinearLayout>
 
         <!-- Sección de Terror -->
@@ -75,26 +83,29 @@
             android:id="@+id/sectionTerror"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
             android:layout_marginTop="8dp">
 
             <ImageView
                 android:id="@+id/imgTerror"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:src="@drawable/ic_terror"
                 android:contentDescription="Terror"
-                android:visibility="visible" />
+                android:visibility="visible"
+                android:scaleType="centerCrop"
+                android:clickable="true"
+                android:focusable="true" />
 
-            <Button
-                android:id="@+id/btnTerror"
-                android:layout_width="0dp"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Terror" />
+                android:text="Terror"
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="8dp"/>
         </LinearLayout>
 
     </LinearLayout>
 </RelativeLayout>
-

@@ -27,7 +27,7 @@ public class ReproductorActivity extends AppCompatActivity {
     private Button btnPlay, btnPause, btnMenu;
     private String nombre, genero;
     private int edad;
-    private boolean fotoTomada = false; // Variable para controlar si la foto ha sido tomada
+    private boolean fotoTomada = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,7 +80,7 @@ public class ReproductorActivity extends AppCompatActivity {
                     }
                 })
                 .setNegativeButton("No", (dialog, which) -> {
-                    videoView.start(); // Comienza el video si se selecciona "No"
+                    videoView.start();
                 })
                 .create()
                 .show();
@@ -93,10 +93,10 @@ public class ReproductorActivity extends AppCompatActivity {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             ivFotoPerfil.setImageBitmap(imageBitmap);
-            fotoTomada = true; // Actualiza el estado para indicar que la foto ha sido tomada
-            videoView.start(); // Comienza el video después de tomar la foto
+            fotoTomada = true;
+            videoView.start();
         } else {
-            videoView.start(); // Comienza el video si no se toma la foto
+            videoView.start();
         }
     }
 

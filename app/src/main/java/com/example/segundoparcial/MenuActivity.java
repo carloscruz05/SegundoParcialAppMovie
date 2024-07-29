@@ -4,7 +4,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -17,7 +16,6 @@ import android.widget.RadioButton;
 public class MenuActivity extends AppCompatActivity {
 
     private TextView textViewWelcome;
-    private Button btnCaricatura, btnAccion, btnTerror;
     private ImageView imgCaricatura, imgAccion, imgTerror;
     private LinearLayout sectionCaricatura, sectionAccion, sectionTerror;
     private String nombre;
@@ -30,9 +28,6 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
 
         textViewWelcome = findViewById(R.id.textViewWelcome);
-        btnCaricatura = findViewById(R.id.btnCaricatura);
-        btnAccion = findViewById(R.id.btnAccion);
-        btnTerror = findViewById(R.id.btnTerror);
         imgCaricatura = findViewById(R.id.imgCaricatura);
         imgAccion = findViewById(R.id.imgAccion);
         imgTerror = findViewById(R.id.imgTerror);
@@ -43,9 +38,9 @@ public class MenuActivity extends AppCompatActivity {
         // Mostrar diálogo para capturar datos
         mostrarDialogoCapturaDatos();
 
-        btnCaricatura.setOnClickListener(v -> abrirReproductor("Caricatura", imgCaricatura.getId()));
-        btnAccion.setOnClickListener(v -> abrirReproductor("Acción", imgAccion.getId()));
-        btnTerror.setOnClickListener(v -> abrirReproductor("Terror", imgTerror.getId()));
+        imgCaricatura.setOnClickListener(v -> abrirReproductor("Caricatura", imgCaricatura.getId()));
+        imgAccion.setOnClickListener(v -> abrirReproductor("Acción", imgAccion.getId()));
+        imgTerror.setOnClickListener(v -> abrirReproductor("Terror", imgTerror.getId()));
     }
 
     private void mostrarDialogoCapturaDatos() {

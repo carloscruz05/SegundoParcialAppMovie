@@ -15,16 +15,16 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        // Obtener el ImageView del logo
+
         ImageView logo = findViewById(R.id.logo);
 
-        // Cargar la animación
+
         Animation rotateAnimation = AnimationUtils.loadAnimation(this, R.anim.rotate_logo);
 
-        // Aplicar la animación al logo
+
         logo.startAnimation(rotateAnimation);
 
-        // Retraso de 3 segundos antes de iniciar la actividad principal
+
         new Handler().postDelayed(() -> {
             startActivity(new Intent(SplashActivity.this, MenuActivity.class));
             finish();
